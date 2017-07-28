@@ -1,4 +1,4 @@
-<h1>Welcome</h1>
+<h1>New User</h1>
 
 <%= form_for @user do |t| %>
   <%= t.label :name %>
@@ -13,5 +13,7 @@
   <%= t.number_field :tickets %><br>
   <%= t.label :height %>
   <%= t.number_field :height %><br>
+  <%= t.label :admin %>
+  <%= t.check_box :admin %><br>
   <%= t.submit "Create User" %>
 <% end %>
