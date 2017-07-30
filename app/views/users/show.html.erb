@@ -1,11 +1,21 @@
+<%if @user.admin?%>
+  <h3>ADMIN</h3>
+<%end%>
+
+
+  <%= @message %>
+
 <%= @user.name %>
 
-<%= @user.nausea %>
+Nausea: <%= @user.nausea %>
 
 <h3>Mood</h3>
-<%= @user.happiness %>
+Happiness: <%= @user.happiness %>
 <%= @mood %>
 
-<%= @user.tickets %>
+Tickets: <%= @user.tickets %>
 
-<%= @user.height %>
+Height: <%= @user.height %>
+
+<%= link_to "See attractions", attractions_path %>
+<%= link_to "Log Out", signout_path, method: :post %>

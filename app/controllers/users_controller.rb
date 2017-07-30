@@ -18,20 +18,27 @@ class UsersController < ApplicationController
     end
 
   end
-  
+
   def login
 
   end
+
   def show
-    @user = User.find(params[:id])
-    if @user.happiness > 1
-      @mood = "happy"
+    if loggedin?
+      @user = current_user
+      @mood = current_user.mood
+      @message = params[:message]
+    else
+      redirect_to '/'
     end
+  end
+
+  def update
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name,:nausea,:password_digest,:happiness,:tickets,:height, :admin)
+    params.require(:user).permit(:name,:nausea,:password,:happiness,:tickets,:height, :admin)
   end
 end

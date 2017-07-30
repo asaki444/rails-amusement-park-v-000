@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :users, :attractions, :rides
   get '/', to: 'users#index'
   root 'users#index'
   get '/signin' => 'sessions#new'
   post '/signin' => 'sessions#create'
-  post '/logout' => 'sessions#destroy'
+  post '/signout' => 'sessions#destroy'
 end
